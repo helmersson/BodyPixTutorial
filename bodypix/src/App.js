@@ -52,14 +52,14 @@ function App() {
             // *   - net.segmentPersonParts
             // *   - net.segmentMultiPerson
             // *   - net.segmentMultiPersonParts
-            const person = await net.segmentPerson(video);
-            // const person = await net.segmentPersonParts(video);
+            // const person = await net.segmentPerson(video);
+            const person = await net.segmentPersonParts(video);
             console.log(person);
 
             // const coloredPartImage = bodyPix.toMask(person);
             const coloredPartImage = bodyPix.toColoredPartMask(person);
             const opacity = 0.7;
-            const flipHorizontal = true;
+            //const flipHorizontal = false;
             const maskBlurAmount = 0;
             const canvas = canvasRef.current;
 
@@ -68,8 +68,8 @@ function App() {
                 video,
                 coloredPartImage,
                 opacity,
-                maskBlurAmount,
-                flipHorizontal
+                maskBlurAmount
+                //flipHorizontal
             );
         }
     };
@@ -90,7 +90,7 @@ function App() {
                         textAlign: "center",
                         zindex: 9,
                         width: 640,
-                        height: 100,
+                        height: 480,
                     }}
                 />
 
